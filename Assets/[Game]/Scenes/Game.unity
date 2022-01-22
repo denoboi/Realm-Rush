@@ -863,7 +863,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path:
-  - {fileID: 0}
   - {fileID: 6177359572647296964}
   - {fileID: 1765058330}
   - {fileID: 1765398794}
