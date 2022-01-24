@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Waypoint : MonoBehaviour
 {
-
+    public bool isPlaceable;
     Waypoint waypoint;
    
     // Update is called once per frame
@@ -13,8 +13,12 @@ public class Waypoint : MonoBehaviour
         
     }
 
-    private void OnMouseDown()
+    void OnMouseDown()
     {
-        Debug.Log(transform.name);
+        if (isPlaceable)
+        {
+            Debug.Log(transform.name);
+        }
+        
     }
 }

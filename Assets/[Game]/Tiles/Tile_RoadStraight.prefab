@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 221305279214604764, guid: b417dfe0c64457745bfba5331893aedd, type: 3}
+      propertyPath: isPlaceable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2271238757812445784, guid: b417dfe0c64457745bfba5331893aedd, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6177359571558829250, guid: b417dfe0c64457745bfba5331893aedd, type: 3}
       propertyPath: m_Name
       value: Tile_RoadStraight
@@ -57,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6177359573135020871, guid: b417dfe0c64457745bfba5331893aedd, type: 3}
       propertyPath: m_text
-      value: 1,1
+      value: 0,0
       objectReference: {fileID: 0}
     - target: {fileID: 6510777027431195507, guid: b417dfe0c64457745bfba5331893aedd, type: 3}
       propertyPath: m_LocalPosition.x

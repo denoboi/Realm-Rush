@@ -7,9 +7,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 221305279214604764, guid: b417dfe0c64457745bfba5331893aedd, type: 3}
+      propertyPath: isPlaceable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6177359571558829250, guid: b417dfe0c64457745bfba5331893aedd, type: 3}
       propertyPath: m_Name
-      value: Tile_CornerRoad
+      value: Tile_RoadCorner
       objectReference: {fileID: 0}
     - target: {fileID: 6177359571558829251, guid: b417dfe0c64457745bfba5331893aedd, type: 3}
       propertyPath: m_RootOrder
