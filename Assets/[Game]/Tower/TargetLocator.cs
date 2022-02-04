@@ -6,11 +6,8 @@ using UnityEngine;
 public class TargetLocator : MonoBehaviour
 {
     [SerializeField] Transform weapon;
-    [SerializeField] Transform target;
-    
-    
-    
-
+    Transform target;
+  
     void Start()
     {
         target = FindObjectOfType<EnemyMover>().transform;
@@ -25,5 +22,10 @@ public class TargetLocator : MonoBehaviour
     private void AimWeapon()
     {
         weapon.LookAt(target);
+    }
+
+    private void FireWeapon()
+    {
+
     }
 }
