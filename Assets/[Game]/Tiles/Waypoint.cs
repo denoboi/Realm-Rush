@@ -6,7 +6,7 @@ public class Waypoint : MonoBehaviour
 {
     public bool isPlaceable;
     Waypoint waypoint;
-    public GameObject ballista;
+    public GameObject towerPrefab;
    
     // Update is called once per frame
     void Update()
@@ -19,7 +19,8 @@ public class Waypoint : MonoBehaviour
         if (isPlaceable)
         {
             Debug.Log(transform.name);
-            Instantiate(ballista, transform.position, Quaternion.identity);
+            Instantiate(towerPrefab, transform.position, Quaternion.identity);
+            isPlaceable = false;
         }
         
     }
