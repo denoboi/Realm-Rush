@@ -9,6 +9,7 @@ public class TargetLocator : MonoBehaviour
     [SerializeField] Transform target;
     
     
+    
 
     void Start()
     {
@@ -23,6 +24,6 @@ public class TargetLocator : MonoBehaviour
 
     private void AimWeapon()
     {
-        transform.LookAt(target);
+        weapon.LookAt(target);
     }
 }
