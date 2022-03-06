@@ -163,7 +163,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  speed: 0.5
+  speed: 1
 --- !u!114 &8599243431983854941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,5 +176,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dbe69f5d774d814ea594ec6d26acc3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlaceable: 0
   towerPrefab: {fileID: 0}
+  isPlaceable: 0

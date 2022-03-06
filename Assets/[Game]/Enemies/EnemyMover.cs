@@ -9,13 +9,14 @@ public class EnemyMover : MonoBehaviour
     [SerializeField] List<Waypoint> path = new List<Waypoint>();
     [SerializeField] [Range(0f, 5f)] float speed = 1f;
 
-    // Start is called before the first frame update
-    void Start()
+    // Objeleri pool'dan cekip enable disable yaptigimiz icin bunu kullaniyoruz
+    void OnEnable()
     {
-
+        //bunlarin sirasi onemli
         FindPath();
-        StartCoroutine(FollowPath());
         ReturnToStart();
+        StartCoroutine(FollowPath());
+        
 
 
     }
@@ -67,6 +68,7 @@ public class EnemyMover : MonoBehaviour
         }
 
         //path sonunda destroy et enemy'i
-        Destroy(gameObject);
+        
+        gameObject.SetActive(false);
     }
 }
