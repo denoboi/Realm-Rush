@@ -17,7 +17,7 @@ public class CoordinateLabeler : MonoBehaviour
     Waypoint waypoint;
 
     [SerializeField] Color defaultColor = Color.white;
-    [SerializeField] Color blockedColor = Color.gray;
+    [SerializeField] Color blockedColor = Color.red;
 
     private void Awake()
     {

@@ -29,7 +29,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9166679119858262773, guid: 4e43d58f5051188439bc731e6fc6fb90, type: 3}
       propertyPath: m_text
-      value: 5,-2
+      value: 0,0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9166679119858262773, guid: 4e43d58f5051188439bc731e6fc6fb90, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 9166679121301454192, guid: 4e43d58f5051188439bc731e6fc6fb90, type: 3}
       propertyPath: m_Name
