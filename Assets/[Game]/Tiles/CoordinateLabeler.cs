@@ -8,8 +8,6 @@ using System;
 public class CoordinateLabeler : MonoBehaviour
 {
 
-
-
     TextMeshPro label;
     Vector2Int coordinates = new Vector2Int();
 
@@ -25,7 +23,9 @@ public class CoordinateLabeler : MonoBehaviour
     {
         label = GetComponent<TextMeshPro>();
 
-        //waypoint textmeshpro'nun parenti oldugu icin 
+        label.enabled = true;
+
+        //waypoint'e ulasmam gerek(isPlaceable olcmem icin) ve waypoint textmeshpro'nun parenti oldugu icin 
         waypoint = GetComponentInParent<Waypoint>();
         
         //Runtime'da da calismasi icin
@@ -41,12 +41,26 @@ public class CoordinateLabeler : MonoBehaviour
         {
             DisplayCoordinates();
             UpdateObjectName();
-        }
 
+            
+        }
         ColorCoordinates();
+        ToggleLabels();
+
+
+
 
     }
 
+
+    void ToggleLabels()
+    {
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            //
+            label.enabled = !label.IsActive();
+        }
+    }
 
     //isPlaceable degilse rengi degistirecek.
     private void ColorCoordinates()
@@ -65,7 +79,7 @@ public class CoordinateLabeler : MonoBehaviour
             label.color = defaultColor;
         }
 
-        else if(!waypoint.IsPlaceable)
+        else
         {
             label.color = blockedColor;
         }
