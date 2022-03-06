@@ -15,6 +15,7 @@ public class EnemyMover : MonoBehaviour
 
         FindPath();
         StartCoroutine(FollowPath());
+        ReturnToStart();
 
 
     }
@@ -25,7 +26,7 @@ public class EnemyMover : MonoBehaviour
 
     void FindPath()
     {
-        //guard statement(yani oncekini siliyor ve yeni ekliyor)
+        //guard statement - oncekini siliyor ve yeni ekliyor
         path.Clear();
 
         //simdilik bu iyi bir yontem degil, cunku hangi sirayla alacagini bilmiyoruz. Yine elle vermemiz gerek. Ileride degisecek.
@@ -38,6 +39,12 @@ public class EnemyMover : MonoBehaviour
         }
     }
 
+
+    //Ilk path karesinden baslatacak.
+    void ReturnToStart()
+    {
+        transform.position = path[0].transform.position;
+    }
 
     IEnumerator FollowPath()
     {
@@ -58,5 +65,8 @@ public class EnemyMover : MonoBehaviour
 
 
         }
+
+        //path sonunda destroy et enemy'i
+        Destroy(gameObject);
     }
 }
