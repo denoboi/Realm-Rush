@@ -26,6 +26,6 @@ public class TargetLocator : MonoBehaviour
 
     private void FireWeapon()
     {
-
+        
     }
 }

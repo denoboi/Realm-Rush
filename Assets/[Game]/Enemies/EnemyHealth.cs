@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int maxHitPoints = 5;
-    public int currentHitPoints;
+    [SerializeField] int maxHitPoints = 5;
+    [SerializeField] int currentHitPoints;
 
    
     void Start()

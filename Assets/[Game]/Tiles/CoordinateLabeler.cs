@@ -7,12 +7,27 @@ using System;
 [ExecuteAlways]
 public class CoordinateLabeler : MonoBehaviour
 {
+
+
+
     TextMeshPro label;
     Vector2Int coordinates = new Vector2Int();
+
+    /* bu script textmeshpro'ya ait. Waypoint'e buradan ulasacagim ve isPlaceable olmayan yerleri silik hale getirecegim.
+     * boylece oraya bir sey eklenmeyecegini gosterecegim gorsel olarak  */
+
+    Waypoint waypoint;
+
+    [SerializeField] Color defaultColor = Color.white;
+    [SerializeField] Color blockedColor = Color.gray;
 
     private void Awake()
     {
         label = GetComponent<TextMeshPro>();
+
+        //waypoint textmeshpro'nun parenti oldugu icin 
+        waypoint = GetComponentInParent<Waypoint>();
+        
         //Runtime'da da calismasi icin
         DisplayCoordinates();
     }
@@ -20,13 +35,40 @@ public class CoordinateLabeler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        //Sadece edit mode'da gosteriyor.
         if(!Application.isPlaying)
         {
             DisplayCoordinates();
+            UpdateObjectName();
         }
 
-        UpdateObjectName();
+        ColorCoordinates();
 
+    }
+
+
+    //isPlaceable degilse rengi degistirecek.
+    private void ColorCoordinates()
+    {
+        //HOCAYA SOR
+        //switch()
+        //{
+        //    case waypoint.IsPlaceable:
+        //            label.color = defaultColor;
+        //        break;
+
+        //}
+       
+        if(waypoint.IsPlaceable)
+        {
+            label.color = defaultColor;
+        }
+
+        else if(!waypoint.IsPlaceable)
+        {
+            label.color = blockedColor;
+        }
     }
 
     private void DisplayCoordinates()
