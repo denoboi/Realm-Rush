@@ -25,6 +25,7 @@ public class ObjectPool : MonoBehaviour
     {
         pool = new GameObject[poolSize];
 
+        //this will instantiate 5 enemies
         for(int i = 0; i<pool.Length; i++)
         {
             
@@ -51,11 +52,12 @@ public class ObjectPool : MonoBehaviour
         
     }
 
+    //this will enable objects in pool. Cunku set active'lerini false yaptigimiz scriptler var. 
     private void EnableObjectInPool()
     {
         for(var i = 0; i<pool.Length; i++)
         {
-            if (pool[i].activeInHierarchy == false)
+            if (!pool[i].activeInHierarchy)
             {
                 pool[i].SetActive(true);
                 return;

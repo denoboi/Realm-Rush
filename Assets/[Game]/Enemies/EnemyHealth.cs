@@ -31,6 +31,7 @@ public class EnemyHealth : MonoBehaviour
         currentHitPoints --;
         if (currentHitPoints <= 0)
         {
+            //pool kullandigimiz icin destroy yerine setactive kullaniyoruz
             gameObject.SetActive(false);
         }
     }

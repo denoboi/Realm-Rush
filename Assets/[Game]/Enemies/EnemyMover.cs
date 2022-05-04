@@ -9,7 +9,7 @@ public class EnemyMover : MonoBehaviour
     [SerializeField] List<Waypoint> path = new List<Waypoint>();
     [SerializeField] [Range(0f, 5f)] float speed = 1f;
 
-    // Objeleri pool'dan cekip enable disable yaptigimiz icin bunu kullaniyoruz
+    // Objeleri pool'dan cekip enable disable yaptigimiz icin bunu kullaniyoruz(start yerine)
     void OnEnable()
     {
         //bunlarin sirasi onemli
@@ -41,7 +41,7 @@ public class EnemyMover : MonoBehaviour
     }
 
 
-    //Ilk path karesinden baslatacak.
+    //Ilk path karesinden baslatacak. cunku pool'da sonunda kaliyor ve setactive kapatiyordu.
     void ReturnToStart()
     {
         transform.position = path[0].transform.position;
@@ -68,6 +68,7 @@ public class EnemyMover : MonoBehaviour
         }
 
         //path sonunda destroy et enemy'i
+        //destroy yerine set active kapatiyoruz cunku pool kullaniyoruz
         
         gameObject.SetActive(false);
     }
