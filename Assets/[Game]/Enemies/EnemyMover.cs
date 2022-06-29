@@ -9,6 +9,13 @@ public class EnemyMover : MonoBehaviour
     [SerializeField] List<Waypoint> path = new List<Waypoint>();
     [SerializeField] [Range(0f, 5f)] float speed = 1f;
 
+    Enemy Enemy;
+
+
+    private void Start()
+    {
+        Enemy = GetComponent<Enemy>();
+    }
     // Objeleri pool'dan cekip enable disable yaptigimiz icin bunu kullaniyoruz(start yerine)
     void OnEnable()
     {
@@ -71,5 +78,7 @@ public class EnemyMover : MonoBehaviour
         //destroy yerine set active kapatiyoruz cunku pool kullaniyoruz
         
         gameObject.SetActive(false);
+        Enemy.GoldPenalty();
+
     }
 }

@@ -20,9 +20,7 @@ public class EnemyHealth : MonoBehaviour
         currentHitPoints = maxHitPoints;
     }
 
-    
    
-
     private void OnParticleCollision(GameObject other)
     {
         Hit();

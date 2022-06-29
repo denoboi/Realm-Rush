@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
 
     public void GoldPenalty()
     {
-
+        EventManager.OnEnemyWins.Invoke();
     }
 
 

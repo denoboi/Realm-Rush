@@ -17,12 +17,14 @@ public class Bank : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.OnDestroyEnemy.AddListener(() => DepositMoney(25)) ;
+        EventManager.OnDestroyEnemy.AddListener(() => DepositMoney(25));
+        EventManager.OnEnemyWins.AddListener(() => WithdrawMoney(25));
     }
 
     private void OnDisable()
     {
         EventManager.OnDestroyEnemy.RemoveListener(() => DepositMoney(25));
+        EventManager.OnEnemyWins.RemoveListener(() => WithdrawMoney(25));
     }
 
     public void DepositMoney(int amount)
