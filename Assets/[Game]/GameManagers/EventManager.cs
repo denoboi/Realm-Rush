@@ -7,5 +7,6 @@ public static class EventManager
 {
 
     public static UnityEvent OnDamageTaken = new UnityEvent();
-    
+    public static UnityEvent OnDestroyEnemy = new UnityEvent();
+
 }
