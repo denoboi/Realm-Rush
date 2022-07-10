@@ -19,12 +19,16 @@ public class Bank : MonoBehaviour
     {
         EventManager.OnDestroyEnemy.AddListener(() => DepositMoney(25));
         EventManager.OnEnemyWins.AddListener(() => WithdrawMoney(25));
+
+       
+        EventManager.OnTowerAdded.AddListener(() => WithdrawMoney(75)); 
     }
 
     private void OnDisable()
     {
         EventManager.OnDestroyEnemy.RemoveListener(() => DepositMoney(25));
         EventManager.OnEnemyWins.RemoveListener(() => WithdrawMoney(25));
+        EventManager.OnTowerAdded.RemoveListener(() => WithdrawMoney(75));
     }
 
     public void DepositMoney(int amount)
@@ -34,6 +38,9 @@ public class Bank : MonoBehaviour
 
     public void WithdrawMoney(int amount)
     {
+        
+        
         _currentBalance -= Mathf.Abs(amount);
+       
     }
 }

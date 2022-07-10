@@ -9,5 +9,6 @@ public static class EventManager
     public static UnityEvent OnDamageTaken = new UnityEvent();
     public static UnityEvent OnDestroyEnemy = new UnityEvent();
     public static UnityEvent OnEnemyWins = new UnityEvent();
+    public static UnityEvent OnTowerAdded = new UnityEvent();
 
 }
