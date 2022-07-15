@@ -11,7 +11,10 @@ public class EnemyMover : MonoBehaviour
 
     Enemy Enemy;
 
-
+    private void Awake()
+    {
+        
+    }
     private void Start()
     {
         Enemy = GetComponent<Enemy>();
@@ -23,11 +26,7 @@ public class EnemyMover : MonoBehaviour
         FindPath();
         ReturnToStart();
         StartCoroutine(FollowPath());
-        
-
-
     }
-
 
     /* Normalde tag ile yapmiyorduk. Path'i elle veriyorduk. Simdi tag ile yaptigimiz icin bunlari bulacagiz array'de.
      * Daha sonra bunlari listemize ekleyecegiz FindPath methodu icinde. */
@@ -38,12 +37,21 @@ public class EnemyMover : MonoBehaviour
         path.Clear();
 
         //simdilik bu iyi bir yontem degil, cunku hangi sirayla alacagini bilmiyoruz. Yine elle vermemiz gerek. Ileride degisecek.
-        GameObject[] waypoints = GameObject.FindGameObjectsWithTag("Path");
+        // GameObject[] waypoints = GameObject.FindGameObjectsWithTag("Path");
 
+        //degistirilmis hali:
+        GameObject parent = GameObject.FindGameObjectWithTag("Path"); // sadece parent'a veriyorum tag'i. Tum tile'lara degil.
 
-        foreach (GameObject waypoint in waypoints)
+       
+
+        foreach (Transform child in parent.transform) // parent'i bulduktan sonra tum childrenlarini bulup onlara waypoint ekliyorum.
         {
-            path.Add(waypoint.GetComponent<Waypoint>());
+            Waypoint waypoint = child.GetComponent<Waypoint>();
+            if (waypoint != null)
+            {
+                path.Add(waypoint);
+            }
+            
         }
     }
 
@@ -52,6 +60,15 @@ public class EnemyMover : MonoBehaviour
     void ReturnToStart()
     {
         transform.position = path[0].transform.position;
+    }
+
+    void FinishPath()
+    {
+        //path sonunda destroy et enemy'i
+        //destroy yerine set active kapatiyoruz cunku pool kullaniyoruz
+        
+        gameObject.SetActive(false);
+        Enemy.GoldPenalty();
     }
 
     IEnumerator FollowPath()
@@ -74,11 +91,7 @@ public class EnemyMover : MonoBehaviour
 
         }
 
-        //path sonunda destroy et enemy'i
-        //destroy yerine set active kapatiyoruz cunku pool kullaniyoruz
-        
-        gameObject.SetActive(false);
-        Enemy.GoldPenalty();
+        FinishPath();
 
     }
 }

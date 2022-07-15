@@ -3,21 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[RequireComponent(typeof(Enemy))] //bu enemy scripti ile birlikte gelecek.
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] int maxHitPoints = 5;
-    [SerializeField] int currentHitPoints;
+    [SerializeField] int _maxHitPoints = 5;
+    [SerializeField] int _currentHitPoints;
+    [Tooltip("Adds amount to maxHitPoints when enemy dies.")]
+    [SerializeField] int _difficultyRamp = 2;
 
-    Enemy Enemy;
+    private Enemy _enemy;
 
+    
     private void Start()
     {
-        Enemy = GetComponent<Enemy>();
+        
+        _enemy = GetComponent<Enemy>(); /*burada null hatasi alabiliriz eger Enemy atamazsam,
+        bu yuzden requireComponent yapacakmisiz. */ 
+        
     }
-
     void OnEnable()
     {
-        currentHitPoints = maxHitPoints;
+        _currentHitPoints = _maxHitPoints;
     }
 
    
@@ -28,13 +35,16 @@ public class EnemyHealth : MonoBehaviour
 
     void Hit()
     {
+        
         Debug.Log("hit");
-        currentHitPoints --;
-        if (currentHitPoints <= 0)
+       
+        _currentHitPoints --;
+        if (_currentHitPoints <= 0)
         {
             //pool kullandigimiz icin destroy yerine setactive kullaniyoruz
             gameObject.SetActive(false);
-            Enemy.GoldReward();
+            _maxHitPoints += _difficultyRamp; //when enemy dies difficulty rise.
+            _enemy.GoldReward();
         }
     }
 }

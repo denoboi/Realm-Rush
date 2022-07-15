@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ObjectPool : MonoBehaviour
-{
+{       
     [SerializeField] GameObject _enemyPrefab;
-    [SerializeField] int poolSize = 5;
+    [SerializeField] [Range(0,50)] int poolSize = 5;
+    [SerializeField] [Range(0.1f,10f)]float _spawnWaitTime = 1.5f;
 
     //bu tum olusturulan objeleri tutan pool
     GameObject[] pool;
@@ -46,7 +48,7 @@ public class ObjectPool : MonoBehaviour
             //oyun basinda dogrudan spawn edecegimiz method
             EnableObjectInPool();
             
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(_spawnWaitTime);
         }
 
         

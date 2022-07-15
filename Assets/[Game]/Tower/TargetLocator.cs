@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TargetLocator : MonoBehaviour
 {
+    
     [SerializeField] Transform weapon;
     //range gerek cok uzaga atiyorlar.
     [SerializeField] private float _range = 15f;
