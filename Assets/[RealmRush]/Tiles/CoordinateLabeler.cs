@@ -24,7 +24,7 @@ public class CoordinateLabeler : MonoBehaviour
     {
         label = GetComponent<TextMeshPro>();
 
-        label.enabled = true;
+        label.enabled = false;
 
         //waypoint'e ulasmam gerek(isPlaceable olcmem icin) ve waypoint textmeshpro'nun parenti oldugu icin 
         waypoint = GetComponentInParent<Waypoint>();
@@ -42,14 +42,11 @@ public class CoordinateLabeler : MonoBehaviour
         {
             DisplayCoordinates();
             UpdateObjectName();
-
+            label.enabled = true;
             
         }
         ColorCoordinates();
         ToggleLabels();
-
-
-
 
     }
 
